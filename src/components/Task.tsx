@@ -2,7 +2,11 @@ import styles from './Task.module.css'
 
 import { Trash } from 'phosphor-react'
 
-export function Task() {
+interface Task {
+  name: string;
+}
+
+export function Task(props: Task) {
   return (
     <li className={styles.task}>
       <div className={styles.inputTaskName}>
@@ -10,7 +14,7 @@ export function Task() {
           <input type="checkbox" />
         </span> 
         <span>
-          Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer. 
+          {props.name}
         </span>
       </div>
       <div>
