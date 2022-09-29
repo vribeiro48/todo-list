@@ -1,0 +1,40 @@
+.wrapperTaskList {
+  margin-top: 7rem;
+}
+
+.taskCounter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.taskCounter span {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.taskCreated {
+  color: var(--blue);
+}
+
+.taskDone {
+  color: var(--purple);
+}
+
+.taskCreatedCounter {
+  color: var(--white);
+  background: var(--gray-400);
+  padding: 0.12rem 0.5rem;
+  border-radius: 10px;
+}
+
+.taskDoneCounter {
+  color: var(--white);
+  background: var(--gray-400);
+  padding: 0.12rem 0.5rem;
+  border-radius: 10px;
+}
+
+.taskList ul {
+  list-style: none;
+  margin-top: 2rem;
+}
