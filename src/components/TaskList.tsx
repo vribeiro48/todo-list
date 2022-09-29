@@ -1,6 +1,21 @@
 import { Task } from './Task'
 import styles from './TaskList.module.css'
 
+const tasks = [
+  {
+    name: 'Limpar quarto'
+  },
+  {
+    name: 'Varrer sala'
+  },
+  {
+    name: 'Organizar armário'
+  },
+  {
+    name: 'Ir no mercado'
+  }
+]
+
 export function TaskList() {
   return (
     <div className={styles.wrapperTaskList}>
