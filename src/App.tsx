@@ -11,8 +11,7 @@ export default function App() {
   return (
     <div>
       <Header />
-      <div className={styles.wrapper}>
-        <CreateTask />
+      <div className={styles.wrapper}>        
         <TaskList />
       </div>
     </div>
