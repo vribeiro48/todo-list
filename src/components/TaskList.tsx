@@ -1,28 +1,41 @@
-import { useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 import { Task } from './Task'
 import styles from './TaskList.module.css'
 
-const tasks = [
-  {
-    name: 'Limpar quarto'
-  },
-  {
-    name: 'Varrer sala'
-  },
-  {
-    name: 'Organizar armário'
-  },
-  {
-    name: 'Ir no mercado'
-  }
-]
+import { PlusCircle } from 'phosphor-react'
+
 
 export function TaskList() {
-  const [taskCreatedCounter, setTaskCreatedCounter] = useState(0);
+  const [tasks, setTasks] = useState([
+    'Limpar quarto',
+    'Varrer sala',
+    'Organizar armário',
+    'Ir no mercado'
+  ])
+
+  const [newTaskText, setNewTaskText] = useState('');
+
+  const [taskCreatedCounter, setTaskCreatedCounter] = useState(tasks.length);
   const [taskDoneCounter, setTaskDoneCounter] = useState(0);
+
+  function handleCreateNewTask(event: FormEvent) {
+    event.preventDefault()
+    
+    setTasks([...tasks, newTaskText])
+    setNewTaskText('')
+    setTaskCreatedCounter(tasks.length+1)
+  }
+
+  function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
+    setNewTaskText(event.target.value)
+  }
 
   return (
     <div className={styles.wrapperTaskList}>
+      <form className={styles.container} onSubmit={handleCreateNewTask}>
+        <input className={styles.input} type="text" value={newTaskText} onChange={handleNewTaskChange} placeholder="Adicione uma nova tarefa" required />
+        <button type="submit">Criar <PlusCircle size={16} /></button>
+      </form>
       <div className={styles.taskCounter}>
         <div>
           <span className={styles.taskCreated}>Tarefas criadas</span> <span className={styles.taskCreatedCounter}>{taskCreatedCounter}</span>
@@ -36,7 +49,7 @@ export function TaskList() {
         <ul>
           {
             tasks.map(task => {
-              return <Task name={task.name} />
+              return <Task content={task} />
             })
           }
         </ul>

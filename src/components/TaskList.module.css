@@ -1,10 +1,19 @@
 .wrapperTaskList {
-  margin-top: 7rem;
+  margin-top: -3.75rem;
+}
+
+.container {
+  width: 100%;
+  /* margin: -3.75rem auto; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .taskCounter {
   display: flex;
   justify-content: space-between;
+  margin-top: 3rem;
 }
 
 .taskCounter span {
@@ -37,4 +46,24 @@
 .taskList ul {
   list-style: none;
   margin-top: 2rem;
+}
+
+.input {
+  background: var(--gray-500);
+  border: solid 1px var(--gray-700);
+  border-radius: 8px;
+  padding: 1rem;
+  width: 85%;
+  color: var(--white);
+}
+
+button {
+  padding: 1rem;
+  border-radius: 8px;
+  background: var(--blue-dark);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
