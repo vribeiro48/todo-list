@@ -2,11 +2,11 @@ import styles from './Task.module.css'
 
 import { Trash } from 'phosphor-react'
 
-interface Task {
-  name: string;
+interface TaskProps {
+  content: string;
 }
 
-export function Task(props: Task) {
+export function Task(props: TaskProps) {
   return (
     <li className={styles.task}>
       <div className={styles.inputTaskName}>
@@ -14,7 +14,7 @@ export function Task(props: Task) {
           <input type="checkbox" />
         </span> 
         <span>
-          {props.name}
+          {props.content}
         </span>
       </div>
       <div>
