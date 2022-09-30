@@ -1,6 +1,5 @@
 .task {
   padding: 1rem;
-  background: var(--gray-400);
   border: solid 1px var(--gray-400);
   border-radius: 8px;
   display: flex;
@@ -8,7 +7,17 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 0.875rem;
+}
+
+.taskToDo {
+  background: var(--gray-400);
   color: var(--white);
+}
+
+.taskDone {
+  background: var(--gray-500);
+  color: var(--gray-300);
+  text-decoration: line-through;
 }
 
 .inputTaskName {
