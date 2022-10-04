@@ -1,27 +1,63 @@
 .task {
   padding: 1rem;
+  background: var(--gray-500);
   border: solid 1px var(--gray-400);
   border-radius: 8px;
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   justify-content: space-between;
   align-items: center;
   margin-top: 0.875rem;
+  transition: 0.2s;
 }
 
-.taskToDo {
+.task:hover {
   background: var(--gray-400);
-  color: var(--white);
+}
+
+.task p {
+  font-size: 0.875rem;
+  line-height: 1.18rem;
+  color: var(--gray-100);
+  margin-right: auto;
+}
+
+.checkContainer {
+  min-width: 1.125rem;
+  height: 1.125rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.checkContainer div {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--blue);
+  border-radius: 50%;
+}
+
+.deleteIcon {
+  cursor: pointer;
+}
+
+.deleteIcon:hover{
+  color: var(--danger);
 }
 
 .taskDone {
-  background: var(--gray-500);
-  color: var(--gray-300);
-  text-decoration: line-through;
+  border: solid 1px var(--gray-500);
 }
 
-.inputTaskName {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+.taskDone button svg {
+  width: 100%;
+  height: 100%;
+  background: var(--purple);
+  border-radius: 50%;
+  color: var(--gray-200);
+}
+
+.taskDone p {
+  text-decoration: line-through;
+  color: var(--gray-300);
 }
