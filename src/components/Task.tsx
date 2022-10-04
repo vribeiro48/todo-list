@@ -1,37 +1,27 @@
 import styles from './Task.module.css'
 
-import { Trash } from 'phosphor-react'
-import { ChangeEvent, useState } from 'react';
+import { CheckCircle, Trash } from 'phosphor-react'
 
 interface TaskProps {
-  content: string;
+  id: string;
+  name: string;
+  done: boolean;
+  onDeleteTask: (taskId: string) => void;
+  onTaskDone: (taskId: string) => void;
 }
 
-export function Task(props: TaskProps) {
-  const [isChecked, setIsChecked] = useState(false);
-
-  function handleTaskDone(event: ChangeEvent<HTMLInputElement>) {
-    if (event.target.checked) {
-      setIsChecked(true)
-    }
-    else {
-      setIsChecked(false)
-    }
-  }
-
-  return (
-    <li className={`${styles.task} ${isChecked ? styles.taskDone : styles.taskToDo }`}>
-      <div className={styles.inputTaskName}>
-        <span>
-          <input type="checkbox" onChange={handleTaskDone} checked={isChecked} />
-        </span> 
-        <span>
-          {props.content}
-        </span>
+export function Task({ id, name, done, onDeleteTask, onTaskDone}: TaskProps) {
+  return (    
+    <div className={`${styles.task} ${done ? styles.taskDone : ""}`}>
+      <button className={styles.checkContainer} onClick={() => onTaskDone(id)} >
+        {done ? <CheckCircle /> : <div />}
+      </button>
+      <p className={`${done ? styles.taskDoneText : ""}`}>
+        {name}
+      </p>
+      <div className={styles.deleteIcon}>
+        <Trash onClick={() => onDeleteTask(id)} />
       </div>
-      <div>
-        <Trash />
-      </div>
-    </li>
+    </div>
   )
 }
